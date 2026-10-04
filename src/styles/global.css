@@ -10,11 +10,7 @@
   /* Background Assets */
   --landing-bg-img: none;
   --hero-bg-img: none;
-  --wood-pattern-img: url('/islamic-pattern.png');
   --reader-bg-img: url('/reader-bg.jpg');
-  --quran-path-img: url('/quran-path.png');
-  --quran-dawn-img: url('/quran-dawn.png');
-  --mosque-domes-img: url('/mosque-domes.png');
 
   /* Authentic Islamic Architectural Palette (Walnut Wood & Amber Gold) */
   --color-primary: #331E12;

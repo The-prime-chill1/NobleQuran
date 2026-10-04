@@ -17,8 +17,8 @@ function AppContent() {
 
   useEffect(() => {
     const root = document.documentElement
-    // Apply theme
-    root.setAttribute('data-theme', settings.theme)
+    // Light mode by default as requested
+    root.setAttribute('data-theme', 'light')
     // Apply font sizes as CSS variables
     root.style.setProperty('--arabic-font-size', `${settings.arabicFontSize}px`)
     root.style.setProperty('--translation-font-size', `${settings.translationFontSize}px`)

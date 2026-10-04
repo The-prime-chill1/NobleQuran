@@ -1,15 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Sun, Moon, Sunset, Type, AlignJustify, BookOpen, RotateCcw, Check } from 'lucide-react'
+import { Type, AlignJustify, BookOpen, RotateCcw } from 'lucide-react'
 import { useReadingSettings } from '../hooks/useReadingSettings'
 import { AVAILABLE_TRANSLATIONS } from '../services/quranService'
 import '../styles/settings.css'
-
-const THEMES = [
-  { id: 'light', label: 'Light', icon: Sun, desc: 'Clean white background' },
-  { id: 'dark', label: 'Dark', icon: Moon, desc: 'Dark reading mode' },
-  { id: 'parchment', label: 'Parchment', icon: Sunset, desc: 'Warm sepia tones' },
-]
 
 const READING_MODES = [
   { id: 'mushaf', label: 'Mushaf', desc: 'Traditional book layout with flowing Arabic text' },
@@ -27,7 +21,6 @@ const LINE_SPACINGS = [
 export default function ReadingSettings() {
   const {
     settings,
-    setTheme,
     setReadingMode,
     setTranslation,
     toggleTranslation,
@@ -60,32 +53,6 @@ export default function ReadingSettings() {
 
       <div className="settings-body">
         <div className="container-narrow">
-
-          {/* ====== THEME ====== */}
-          <section className="settings-section" aria-labelledby="theme-heading">
-            <h2 id="theme-heading" className="settings-section-title">
-              <Sun size={18} aria-hidden="true" />
-              Appearance Theme
-            </h2>
-            <div className="theme-options">
-              {THEMES.map(({ id, label, icon: Icon, desc }) => (
-                <button
-                  key={id}
-                  className={`theme-option${settings.theme === id ? ' active' : ''}`}
-                  onClick={() => setTheme(id)}
-                  aria-pressed={settings.theme === id}
-                  id={`theme-${id}-btn`}
-                >
-                  <div className={`theme-preview theme-preview-${id}`} aria-hidden="true">
-                    <Icon size={20} />
-                  </div>
-                  <span className="theme-label">{label}</span>
-                  <span className="theme-desc">{desc}</span>
-                  {settings.theme === id && <Check size={14} className="theme-check" aria-hidden="true" />}
-                </button>
-              ))}
-            </div>
-          </section>
 
           {/* ====== READING MODE ====== */}
           <section className="settings-section" aria-labelledby="reading-mode-heading">

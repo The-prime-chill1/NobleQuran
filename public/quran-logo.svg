@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="quranGold24k" x1="15" y1="10" x2="105" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#FFF2B8" />
+      <stop offset="25%" stopColor="#F5CE68" />
+      <stop offset="50%" stopColor="#E5A93C" />
+      <stop offset="78%" stopColor="#B37C22" />
+      <stop offset="100%" stopColor="#87570E" />
+    </linearGradient>
+    <radialGradient id="quranAura" cx="60" cy="60" r="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#5A3416" stopOpacity="0.95" />
+      <stop offset="65%" stopColor="#2D190B" stopOpacity="0.98" />
+      <stop offset="100%" stopColor="#150C06" stopOpacity="1" />
+    </radialGradient>
+    <linearGradient id="quranPageGrad" x1="40" y1="42" x2="80" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#FFFDF7" />
+      <stop offset="50%" stopColor="#F6EBD5" />
+      <stop offset="100%" stopColor="#E2CCA3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Walnut Wood Cartouche Background -->
+  <rect x="14" y="14" width="92" height="92" rx="20" fill="url(#quranAura)" stroke="url(#quranGold24k)" stroke-width="1.8" />
+
+  <!-- Outer Rub el Hizb — Dual Interlocking Squares -->
+  <rect x="32" y="32" width="56" height="56" rx="4" transform="rotate(45 60 60)" fill="none" stroke="url(#quranGold24k)" stroke-width="1.5" stroke-opacity="0.85" />
+  <rect x="32" y="32" width="56" height="56" rx="4" fill="none" stroke="url(#quranGold24k)" stroke-width="1.5" stroke-opacity="0.85" />
+
+  <!-- Inner Dotted Halo -->
+  <circle cx="60" cy="60" r="33" fill="none" stroke="url(#quranGold24k)" stroke-width="1" stroke-dasharray="1.5 2.5" opacity="0.7" />
+
+  <!-- Celestial Crescent Moon (Hilal) -->
+  <path d="M 68 28 C 64 28 59 31 57 35 C 55 39 56 44 59 47 C 55 45 52 41 52 36 C 52 30 56 25 62 24 C 64 23.7 66.5 24.3 68 28 Z" fill="url(#quranGold24k)" />
+
+  <!-- Radiant Guidance Star -->
+  <path d="M 60 21 L 61.2 24 L 64.2 25.2 L 61.2 26.4 L 60 29.4 L 58.8 26.4 L 55.8 25.2 L 58.8 24 Z" fill="#FFF5D6" />
+
+  <!-- Open Holy Qur'an Manuscript (Back Layers) -->
+  <path d="M 60 56 C 54 52 45 51 35 53 C 34 53 33 54 33 55 L 33 73 C 43 71 52 72 60 77 Z" fill="#C9A86E" opacity="0.8" />
+  <path d="M 60 56 C 66 52 75 51 85 53 C 86 53 87 54 87 55 L 87 73 C 77 71 68 72 60 77 Z" fill="#A88347" opacity="0.8" />
+
+  <!-- Front Pages -->
+  <path d="M 60 54 C 54 50 44 49 34 51 C 33.2 51.2 32.5 52 32.5 53 L 32.5 71 C 42.5 69 52 70 60 75 Z" fill="url(#quranPageGrad)" stroke="url(#quranGold24k)" stroke-width="0.8" />
+  <line x1="38" y1="56" x2="54" y2="58" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+  <line x1="38" y1="60" x2="54" y2="62" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+  <line x1="38" y1="64" x2="52" y2="66" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+
+  <path d="M 60 54 C 66 50 76 49 86 51 C 86.8 51.2 87.5 52 87.5 53 L 87.5 71 C 77.5 69 68 70 60 75 Z" fill="url(#quranPageGrad)" stroke="url(#quranGold24k)" stroke-width="0.8" />
+  <line x1="66" y1="58" x2="82" y2="56" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+  <line x1="66" y1="62" x2="82" y2="60" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+  <line x1="68" y1="66" x2="82" y2="64" stroke="#87570E" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Center Spine Ribbon -->
+  <path d="M 60 53 L 60 76" stroke="url(#quranGold24k)" stroke-width="1.6" stroke-linecap="round" />
+
+  <!-- Carved Wooden Rihal Stand -->
+  <path d="M 44 73 L 73 95 C 74.5 96.2 73.5 97.5 71.5 97.5 L 68 97.5 L 41 76.5 Z" fill="url(#quranGold24k)" />
+  <path d="M 76 73 L 47 95 C 45.5 96.2 46.5 97.5 48.5 97.5 L 52 97.5 L 79 76.5 Z" fill="#B37C22" />
+  <circle cx="60" cy="84" r="2.2" fill="#FFF2B8" stroke="#87570E" stroke-width="0.6" />
+
+  <!-- Corner Jewels -->
+  <circle cx="24" cy="24" r="1.5" fill="url(#quranGold24k)" />
+  <circle cx="96" cy="24" r="1.5" fill="url(#quranGold24k)" />
+  <circle cx="24" cy="96" r="1.5" fill="url(#quranGold24k)" />
+  <circle cx="96" cy="96" r="1.5" fill="url(#quranGold24k)" />
+</svg>

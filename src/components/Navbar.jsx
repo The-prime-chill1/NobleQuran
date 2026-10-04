@@ -6,13 +6,10 @@ import {
   Grid3X3,
   Bookmark,
   Settings,
-  Sun,
-  Moon,
-  Sunset,
   Menu,
   X,
 } from 'lucide-react'
-import { useReadingSettings } from '../hooks/useReadingSettings'
+import QuranLogo from './QuranLogo'
 import '../styles/navbar.css'
 
 const NAV_LINKS = [
@@ -23,29 +20,8 @@ const NAV_LINKS = [
   { to: '/settings', label: 'Settings', icon: Settings },
 ]
 
-const THEME_CYCLE = ['light', 'dark', 'parchment']
-const THEME_ICONS = {
-  light: Sun,
-  dark: Moon,
-  parchment: Sunset,
-}
-const THEME_LABELS = {
-  light: 'Switch to dark mode',
-  dark: 'Switch to parchment mode',
-  parchment: 'Switch to light mode',
-}
-
 export default function Navbar() {
-  const { settings, setTheme } = useReadingSettings()
   const [menuOpen, setMenuOpen] = useState(false)
-
-  function cycleTheme() {
-    const currentIdx = THEME_CYCLE.indexOf(settings.theme)
-    const nextTheme = THEME_CYCLE[(currentIdx + 1) % THEME_CYCLE.length]
-    setTheme(nextTheme)
-  }
-
-  const ThemeIcon = THEME_ICONS[settings.theme] || Sun
 
   function closeMenu() {
     setMenuOpen(false)
@@ -55,15 +31,9 @@ export default function Navbar() {
     <>
       <nav className="navbar" role="navigation" aria-label="Main navigation">
         <div className="navbar-inner">
-          {/* Logo */}
+          {/* Bespoke Islamic Logo */}
           <Link to="/" className="navbar-logo" aria-label="The Noble Qur'an — Home">
-            <div className="navbar-logo-icon" aria-hidden="true">
-              <span>ق</span>
-            </div>
-            <div className="navbar-logo-text">
-              <span className="name-arabic">القرآن الكريم</span>
-              <span className="name-english">The Noble Qur'an</span>
-            </div>
+            <QuranLogo size="md" variant="full" showTagline={false} />
           </Link>
 
           {/* Desktop Nav */}
@@ -85,15 +55,6 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="navbar-actions">
-            <button
-              className="theme-toggle"
-              onClick={cycleTheme}
-              aria-label={THEME_LABELS[settings.theme]}
-              title={THEME_LABELS[settings.theme]}
-            >
-              <ThemeIcon size={16} aria-hidden="true" />
-            </button>
-
             <Link to="/read" className="nav-read-btn">
               <BookOpen size={14} aria-hidden="true" />
               Read Now
@@ -130,17 +91,6 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
-          <div className="mobile-menu-footer">
-            <p>Theme: {settings.theme}</p>
-            <button
-              className="btn btn-ghost btn-sm"
-              onClick={cycleTheme}
-              aria-label={THEME_LABELS[settings.theme]}
-            >
-              <ThemeIcon size={15} aria-hidden="true" />
-              {settings.theme === 'light' ? 'Dark' : settings.theme === 'dark' ? 'Parchment' : 'Light'}
-            </button>
-          </div>
         </div>
       )}
 
