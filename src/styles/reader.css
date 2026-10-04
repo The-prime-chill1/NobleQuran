@@ -1,0 +1,627 @@
+/* ============================================
+   THE NOBLE QUR'AN — Reader Page Styles
+   With Heavenly Clouds Backdrop (/reader-bg.jpg)
+   ============================================ */
+
+.reader-page {
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--bg-base);
+  padding-bottom: var(--spacing-3xl);
+}
+
+/* Celestial Cloudscape Backdrop */
+.reader-page-with-bg {
+  background-image: var(--reader-bg-img);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Adaptive ambient color overlay over the clouds */
+.reader-cloud-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background var(--transition-slow);
+}
+
+[data-theme="light"] .reader-cloud-overlay {
+  background: radial-gradient(
+    circle at 50% 10%,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(250, 247, 240, 0.78) 50%,
+    rgba(243, 236, 224, 0.88) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+[data-theme="dark"] .reader-cloud-overlay {
+  background: radial-gradient(
+    circle at 50% 10%,
+    rgba(18, 28, 24, 0.82) 0%,
+    rgba(14, 20, 18, 0.88) 50%,
+    rgba(10, 14, 12, 0.94) 100%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+[data-theme="parchment"] .reader-cloud-overlay {
+  background: radial-gradient(
+    circle at 50% 10%,
+    rgba(250, 244, 230, 0.72) 0%,
+    rgba(245, 237, 216, 0.82) 50%,
+    rgba(237, 226, 197, 0.9) 100%
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* --- Reader Header --- */
+.reader-header {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 50;
+  background: var(--bg-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-gold-subtle);
+  padding: 10px 0;
+  box-shadow: 0 4px 20px rgba(18, 60, 48, 0.05);
+  transition: all var(--transition-fast);
+}
+
+.reader-header-inner {
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* Surah Selector */
+.reader-surah-select {
+  flex: 1;
+  min-width: 170px;
+  max-width: 280px;
+}
+
+.reader-surah-select select {
+  width: 100%;
+  padding: 8px 36px 8px 14px;
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C5A358' stroke-width='2.2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.reader-surah-select select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-dim);
+}
+
+/* Verse Jump */
+.verse-jump {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 4px 12px;
+  transition: all var(--transition-fast);
+}
+
+.verse-jump:focus-within {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-dim);
+}
+
+.verse-jump-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.verse-jump-input {
+  width: 50px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  outline: none;
+  text-align: center;
+}
+
+/* Mode Switcher */
+.reader-mode-switcher {
+  display: flex;
+  background: rgba(197, 163, 88, 0.1);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.mode-btn {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.mode-btn:hover {
+  color: var(--color-gold);
+}
+
+.mode-btn.active {
+  background: var(--color-gold-gradient);
+  color: #122820;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(197, 163, 88, 0.3);
+}
+
+/* Settings Toggle */
+.reader-settings-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  border: 1.5px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.reader-settings-toggle:hover,
+.reader-settings-toggle.open {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+}
+
+.reader-settings-toggle.active-audio {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* --- Reader Quick Settings Panel --- */
+.reader-quick-settings {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-gold-subtle);
+  padding: var(--spacing-md) 0;
+  animation: slideDown 0.25s ease;
+  position: relative;
+  z-index: 49;
+  box-shadow: var(--shadow-md);
+}
+
+.reader-quick-settings-inner {
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-2xl);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.qs-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qs-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.qs-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qs-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.qs-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+}
+
+.qs-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 32px;
+  text-align: center;
+}
+
+.qs-toggle-btn {
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1.5px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qs-toggle-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.qs-toggle-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FAF7F0;
+}
+
+[data-theme="dark"] .qs-toggle-btn.active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-primary-dark);
+}
+
+/* --- Reader Manuscript Vessel --- */
+.reader-manuscript-canvas {
+  max-width: var(--reader-max-width);
+  margin: var(--spacing-2xl) auto;
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 48px rgba(36, 21, 13, 0.18), inset 0 0 0 3px rgba(229, 169, 60, 0.12);
+  overflow: hidden;
+  padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-xl);
+}
+
+/* Decorative manuscript corners */
+.manuscript-corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-color: var(--color-gold);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 14px;
+  left: 14px;
+  border-top: 2.5px solid var(--color-gold);
+  border-left: 2.5px solid var(--color-gold);
+}
+
+.corner-tr {
+  top: 14px;
+  right: 14px;
+  border-top: 2.5px solid var(--color-gold);
+  border-right: 2.5px solid var(--color-gold);
+}
+
+/* --- Surah Header --- */
+.surah-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.surah-header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Ornate Surah number octagonal medallion (matching reference 1) */
+.surah-number-ornament {
+  width: 52px;
+  height: 52px;
+  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+  background: var(--color-gold-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5px;
+  margin-bottom: var(--spacing-xs);
+  box-shadow: 0 4px 18px rgba(229, 169, 60, 0.4);
+}
+
+.ornament-number {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+  background: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+}
+
+[data-theme="light"] .ornament-number {
+  background: #FFFDF8;
+}
+
+.surah-number-display {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.surah-arabic-title {
+  font-family: var(--font-arabic);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  direction: rtl;
+  line-height: 1.35;
+  margin: var(--spacing-xs) 0;
+  filter: drop-shadow(0 2px 10px rgba(197, 163, 88, 0.25));
+}
+
+.surah-english-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.surah-meaning {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+}
+
+.surah-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Bismillah */
+.bismillah-wrapper {
+  text-align: center;
+  margin: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.bismillah {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-align: center;
+  color: var(--color-primary);
+  direction: rtl;
+  margin: var(--spacing-md) 0;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+[data-theme="dark"] .bismillah {
+  color: var(--color-gold);
+}
+
+[data-theme="parchment"] .bismillah {
+  color: #332616;
+}
+
+/* --- Verses Container --- */
+.verses-container {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mushaf Mode */
+.verses-mushaf {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.mushaf-text-flow {
+  font-family: var(--font-arabic);
+  font-size: var(--arabic-font-size);
+  line-height: var(--line-spacing);
+  direction: rtl;
+  text-align: justify;
+  text-justify: inter-word;
+  color: var(--text-primary);
+  word-spacing: 0.12em;
+}
+
+.mushaf-verse-end {
+  color: var(--color-gold);
+  font-size: 0.88em;
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 4px;
+  transition: all var(--transition-fast);
+}
+
+.mushaf-verse-end:hover {
+  transform: scale(1.15);
+  color: var(--color-gold-light);
+}
+
+/* --- Reader Navigation Bar --- */
+.reader-nav {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.reader-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--border-gold);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.reader-nav-btn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.reader-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.reader-progress {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  text-align: center;
+}
+
+/* --- Audio Panel Floating / Docked --- */
+.audio-panel {
+  max-width: var(--reader-max-width);
+  margin: var(--spacing-lg) auto 0;
+  position: relative;
+  z-index: 10;
+  animation: slideDown 0.3s ease;
+}
+
+/* --- Sticky Verse-by-Verse Controls --- */
+.vbv-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 0 0;
+  flex-wrap: wrap;
+}
+
+/* Reader loading animation */
+.reader-loading {
+  min-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .reader-manuscript-canvas {
+    margin: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .reader-mode-switcher {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .reader-header-inner {
+    gap: var(--spacing-xs);
+  }
+
+  .reader-surah-select {
+    min-width: 130px;
+  }
+
+  .verse-jump {
+    padding: 3px 8px;
+  }
+
+  .verse-jump-input {
+    width: 36px;
+  }
+
+  .reader-nav-btn {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+}

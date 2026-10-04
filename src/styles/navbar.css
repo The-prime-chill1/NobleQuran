@@ -1,0 +1,314 @@
+/* ============================================
+   THE NOBLE QUR'AN — Navbar Styles
+   Matching Classical Islamic Typography & Gold Accent
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--bg-nav);
+  border-bottom: 1px solid var(--border-gold-subtle);
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 25px rgba(20, 12, 7, 0.25);
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+/* Logo — Golden Crescent Emblem */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--color-walnut-gradient);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(229, 169, 60, 0.25);
+  transition: all var(--transition-base);
+}
+
+.navbar-logo:hover .navbar-logo-icon {
+  transform: scale(1.06);
+  box-shadow: 0 4px 18px rgba(229, 169, 60, 0.5);
+  border-color: #FFFDF8;
+}
+
+.navbar-logo-icon span {
+  font-family: var(--font-arabic);
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.navbar-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.navbar-logo-text .name-arabic {
+  font-family: var(--font-arabic-ui);
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  direction: rtl;
+  letter-spacing: 0.02em;
+}
+
+.navbar-logo-text .name-english {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFFDF8;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+[data-theme="light"] .navbar-logo-text .name-english {
+  color: #FAF6EF;
+}
+
+/* Nav Links — Matching Reference Spaced Uppercase Typography */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.75);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+/* Active Golden Underline (matching HOME active item in reference image 2) */
+.nav-link.active {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--color-gold-gradient);
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(229, 169, 60, 0.8);
+}
+
+.nav-link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Navbar Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-gold-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-gold);
+  background: var(--color-gold-dim);
+  transform: rotate(25deg);
+  box-shadow: 0 0 14px rgba(229, 169, 60, 0.4);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Read Now CTA (Amber Gold button) */
+.nav-read-btn {
+  background: var(--color-amber-button);
+  color: #1A0E06;
+  padding: 8px 20px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(201, 142, 42, 0.35);
+}
+
+.nav-read-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 142, 42, 0.55);
+  color: #0E0703;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-gold-subtle);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  transition: all var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+/* Mobile Menu Dropdown */
+.mobile-menu {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: rgba(20, 12, 7, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 2px solid var(--border-gold);
+  padding: var(--spacing-lg);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  animation: slideDown 0.25s ease;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.8);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+}
+
+.mobile-nav-link svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold);
+}
+
+.mobile-menu-footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-gold-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-menu-footer p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .navbar-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-read-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-inner {
+    padding: 0 var(--spacing-md);
+  }
+
+  .navbar-logo-text .name-english {
+    display: none;
+  }
+}

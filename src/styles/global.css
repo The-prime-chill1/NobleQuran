@@ -1,0 +1,920 @@
+/* ============================================
+   THE NOBLE QUR'AN — Global Design System
+   ============================================ */
+
+/* --- Google Fonts Import (fallback) --- */
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&display=swap');
+
+/* --- CSS Custom Properties (Light Theme — Default) --- */
+:root {
+  /* Background Assets */
+  --landing-bg-img: none;
+  --hero-bg-img: none;
+  --wood-pattern-img: url('/islamic-pattern.png');
+  --reader-bg-img: url('/reader-bg.jpg');
+  --quran-path-img: url('/quran-path.png');
+  --quran-dawn-img: url('/quran-dawn.png');
+  --mosque-domes-img: url('/mosque-domes.png');
+
+  /* Authentic Islamic Architectural Palette (Walnut Wood & Amber Gold) */
+  --color-primary: #331E12;
+  --color-primary-dark: #20130B;
+  --color-primary-light: #4A2E1C;
+  --color-gold: #E5A93C;
+  --color-gold-light: #F4CA75;
+  --color-gold-dark: #B88022;
+  --color-gold-dim: rgba(229, 169, 60, 0.16);
+  --color-gold-gradient: linear-gradient(135deg, #F9D888 0%, #E5A93C 50%, #B88022 100%);
+  --color-amber-button: linear-gradient(180deg, #E8AF44 0%, #C98E2A 100%);
+  --color-walnut-gradient: linear-gradient(135deg, #4A2E1C 0%, #331E12 50%, #20130B 100%);
+
+  /* Backgrounds */
+  --bg-base: #FAF6EF;
+  --bg-surface: #F3ECE0;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-solid: #FFFFFF;
+  --bg-overlay: rgba(250, 246, 239, 0.95);
+  --bg-subtle: #EBE1D0;
+  --bg-nav: rgba(26, 15, 9, 0.75);
+
+  /* Glassmorphism & Fretwork Depth */
+  --glass-bg: rgba(250, 246, 239, 0.82);
+  --glass-border: rgba(229, 169, 60, 0.35);
+  --glass-shadow: 0 12px 36px 0 rgba(36, 21, 13, 0.12);
+  --glass-blur: blur(16px);
+  --reader-overlay: rgba(250, 246, 239, 0.85);
+  --hero-overlay: linear-gradient(180deg, rgba(20, 12, 7, 0.85) 0%, rgba(32, 19, 11, 0.6) 45%, rgba(20, 12, 7, 0.92) 100%);
+
+  /* Text */
+  --text-primary: #23160D;
+  --text-secondary: #5C4333;
+  --text-muted: #8C7362;
+  --text-inverse: #FFFDF8;
+  --text-gold: #D8982D;
+
+  /* Borders */
+  --border-color: rgba(60, 36, 20, 0.12);
+  --border-subtle: rgba(60, 36, 20, 0.06);
+  --border-gold: rgba(229, 169, 60, 0.42);
+  --border-gold-subtle: rgba(229, 169, 60, 0.2);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(36, 21, 13, 0.06);
+  --shadow-md: 0 8px 24px rgba(36, 21, 13, 0.1);
+  --shadow-lg: 0 16px 44px rgba(36, 21, 13, 0.16);
+  --shadow-xl: 0 24px 64px rgba(36, 21, 13, 0.22);
+  --shadow-gold-glow: 0 0 28px rgba(229, 169, 60, 0.35);
+
+  /* Typography */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-quote: 'Playfair Display', 'Cinzel', Georgia, serif;
+  --font-arabic: 'Amiri Quran', 'Scheherazade New', 'Amiri', serif;
+  --font-arabic-ui: 'Amiri', 'Scheherazade New', serif;
+
+  /* Dynamic Font Sizes (overridden via JS) */
+  --arabic-font-size: 32px;
+  --translation-font-size: 15px;
+  --line-spacing: 2;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 450ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --nav-height: 72px;
+  --max-width: 1240px;
+  --reader-max-width: 900px;
+}
+
+/* --- Dark Theme (Walnut Wood & Warm Midnight Ember) --- */
+[data-theme="dark"] {
+  --color-primary: #C98E2A;
+  --color-primary-dark: #A5721C;
+  --color-primary-light: #E5A93C;
+  --color-gold: #F0C46B;
+  --color-gold-light: #FCE19D;
+  --color-gold-dark: #C98E2A;
+  --color-gold-dim: rgba(240, 196, 107, 0.18);
+
+  --bg-base: #140C07;
+  --bg-surface: #1E120A;
+  --bg-card: rgba(36, 22, 14, 0.9);
+  --bg-card-solid: #24160E;
+  --bg-overlay: rgba(20, 12, 7, 0.96);
+  --bg-subtle: #2C1A10;
+  --bg-nav: rgba(16, 9, 5, 0.85);
+
+  --glass-bg: rgba(36, 22, 14, 0.78);
+  --glass-border: rgba(240, 196, 107, 0.3);
+  --glass-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.55);
+  --glass-blur: blur(18px);
+  --reader-overlay: rgba(18, 10, 6, 0.88);
+  --hero-overlay: linear-gradient(180deg, rgba(14, 8, 4, 0.88) 0%, rgba(20, 12, 7, 0.65) 45%, #140C07 100%);
+
+  --text-primary: #FFF8EE;
+  --text-secondary: #D4BFA8;
+  --text-muted: #8F7864;
+  --text-inverse: #140C07;
+  --text-gold: #F0C46B;
+
+  --border-color: rgba(240, 196, 107, 0.18);
+  --border-subtle: rgba(240, 196, 107, 0.09);
+  --border-gold: rgba(240, 196, 107, 0.38);
+  --border-gold-subtle: rgba(240, 196, 107, 0.2);
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 44px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.75);
+  --shadow-gold-glow: 0 0 30px rgba(240, 196, 107, 0.3);
+}
+
+/* --- Parchment Theme --- */
+[data-theme="parchment"] {
+  --color-primary: #332616;
+  --color-primary-dark: #22190E;
+  --color-primary-light: #523F27;
+  --color-gold: #A67D28;
+  --color-gold-light: #C29841;
+  --color-gold-dark: #805E1A;
+  --color-gold-dim: rgba(166, 125, 40, 0.16);
+
+  --bg-base: #F5EDD8;
+  --bg-surface: #EDE2C5;
+  --bg-card: rgba(248, 241, 222, 0.9);
+  --bg-card-solid: #F8F1DE;
+  --bg-overlay: rgba(245, 237, 216, 0.96);
+  --bg-subtle: #E5D7B3;
+  --bg-nav: rgba(245, 237, 216, 0.85);
+
+  --glass-bg: rgba(248, 241, 222, 0.75);
+  --glass-border: rgba(166, 125, 40, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(70, 50, 20, 0.1);
+  --glass-blur: blur(16px);
+  --reader-overlay: rgba(245, 237, 216, 0.82);
+  --hero-overlay: linear-gradient(180deg, rgba(40, 30, 16, 0.82) 0%, rgba(60, 45, 24, 0.74) 45%, rgba(245, 237, 216, 0.98) 100%);
+
+  --text-primary: #2C2114;
+  --text-secondary: #6B5738;
+  --text-muted: #947E59;
+  --text-inverse: #F5EDD8;
+  --text-gold: #A67D28;
+
+  --border-color: rgba(107, 87, 56, 0.2);
+  --border-subtle: rgba(107, 87, 56, 0.1);
+  --border-gold: rgba(166, 125, 40, 0.4);
+  --border-gold-subtle: rgba(166, 125, 40, 0.2);
+
+  --shadow-sm: 0 2px 6px rgba(70, 50, 20, 0.06);
+  --shadow-md: 0 8px 24px rgba(70, 50, 20, 0.1);
+  --shadow-lg: 0 16px 40px rgba(70, 50, 20, 0.14);
+  --shadow-xl: 0 24px 60px rgba(70, 50, 20, 0.18);
+  --shadow-gold-glow: 0 0 25px rgba(166, 125, 40, 0.25);
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* --- Layout --- */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: var(--nav-height);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.container-narrow {
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold);
+}
+
+/* --- Arabic Typography --- */
+.arabic-text {
+  font-family: var(--font-arabic);
+  font-size: var(--arabic-font-size);
+  line-height: var(--line-spacing);
+  direction: rtl;
+  text-align: right;
+  color: var(--text-primary);
+  font-feature-settings: 'kern' 1;
+  letter-spacing: 0;
+  word-spacing: 0.1em;
+}
+
+.arabic-text-ui {
+  font-family: var(--font-arabic-ui);
+  direction: rtl;
+  text-align: right;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFFCF5;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: #FFFCF5;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+[data-theme="dark"] .btn-secondary {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.btn-secondary:hover {
+  background: var(--color-gold-dim);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: #FFFCF5;
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-light);
+  color: #FFFCF5;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 8px 14px;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.btn-icon:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+.btn-lg {
+  padding: 13px 28px;
+  font-size: 1rem;
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-gold);
+}
+
+/* --- Islamic Geometric Divider --- */
+.geo-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.geo-divider::before,
+.geo-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-gold), transparent);
+}
+
+.geo-divider-icon {
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  border: 1.5px solid var(--color-gold);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* --- Bismillah --- */
+.bismillah {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  text-align: center;
+  color: var(--color-primary);
+  direction: rtl;
+  margin: var(--spacing-xl) 0;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+}
+
+[data-theme="dark"] .bismillah {
+  color: var(--color-gold);
+}
+
+/* --- Verse Number Badge --- */
+.verse-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-ui);
+  flex-shrink: 0;
+  background: var(--color-gold-dim);
+}
+
+/* --- Section Headers --- */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-header .section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-header h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-header p {
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+/* --- Badges --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.badge-meccan {
+  background: rgba(23, 63, 53, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(23, 63, 53, 0.2);
+}
+
+[data-theme="dark"] .badge-meccan {
+  background: rgba(180, 154, 98, 0.12);
+  color: var(--color-gold);
+  border-color: rgba(180, 154, 98, 0.25);
+}
+
+.badge-medinan {
+  background: rgba(180, 154, 98, 0.12);
+  color: var(--color-gold);
+  border: 1px solid rgba(180, 154, 98, 0.3);
+}
+
+/* --- Loading States --- */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Error States --- */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+.error-icon {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* --- Empty States --- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+.empty-state-icon {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* --- Form Elements --- */
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-dim);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+select.input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2377766F' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* --- Islamic Pattern Background --- */
+.pattern-bg {
+  background-image: radial-gradient(circle at 25% 25%, rgba(180, 154, 98, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(23, 63, 53, 0.04) 0%, transparent 50%);
+}
+
+/* --- Utility Classes --- */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.text-gold { color: var(--color-gold); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.text-primary-color { color: var(--color-primary); }
+
+.font-arabic { font-family: var(--font-arabic); }
+.rtl { direction: rtl; text-align: right; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+.w-full { width: 100%; }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Glassmorphism & Islamic Ornamental Utilities --- */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-xl);
+}
+
+.glass-panel-elevated {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-xl), var(--shadow-gold-glow);
+  border-radius: var(--radius-xl);
+}
+
+.gold-gradient-text {
+  background: var(--color-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(223, 191, 122, 0.25) 50%,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  animation: shimmerSweep 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  30%, 100% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* Islamic Star / Octagonal Emblem */
+.islamic-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  position: relative;
+  color: var(--color-gold);
+  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+}
+
+.islamic-star svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Authentic Octagonal Cartouche (from user reference image 1) */
+.octagonal-cartouche {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+  background: var(--color-gold-gradient);
+  padding: 2.5px;
+  box-shadow: 0 4px 16px rgba(36, 21, 13, 0.35);
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.octagonal-cartouche-inner {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+  background: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  font-family: var(--font-serif);
+}
+
+[data-theme="light"] .octagonal-cartouche-inner {
+  background: #FFFDF8;
+}
+
+/* Fretwork Panel (matching user reference image 1) */
+.fretwork-panel {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 40px rgba(36, 21, 13, 0.16), inset 0 0 0 4px rgba(229, 169, 60, 0.08);
+  position: relative;
+}
+
+/* Floating animation */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+/* Glow pulse animation */
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(229, 169, 60, 0.4)); }
+  50% { filter: drop-shadow(0 0 25px rgba(244, 202, 117, 0.85)); }
+}
+
+.animate-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease both;
+}
+
+/* --- Page sections spacing --- */
+.page-section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.page-section-sm {
+  padding: var(--spacing-2xl) 0;
+}
+
+/* --- Tooltip --- */
+.tooltip-wrapper {
+  position: relative;
+}
+
+/* --- Dialog / Modal --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  max-width: 420px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInScale 0.2s ease;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.modal-body {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --arabic-font-size: 26px;
+    --translation-font-size: 14px;
+    --spacing-3xl: 48px;
+  }
+
+  .container, .container-narrow {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --arabic-font-size: 22px;
+    --spacing-2xl: 32px;
+  }
+}

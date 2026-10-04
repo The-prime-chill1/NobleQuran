@@ -1,0 +1,180 @@
+/* ============================================
+   SurahCard Styles — Carved Ivory & Walnut Manuscript Card
+   Inspired by User Reference Image 1
+   ============================================ */
+
+.surah-card {
+  display: block;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(36, 21, 13, 0.08), inset 0 0 0 2px rgba(229, 169, 60, 0.1);
+}
+
+.surah-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 16px 36px rgba(36, 21, 13, 0.2), 0 0 24px rgba(229, 169, 60, 0.3);
+  transform: translateY(-3px);
+}
+
+.surah-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.surah-card-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* Octagonal Cartouche Badge */
+.surah-cartouche {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.surah-card:hover .surah-cartouche {
+  transform: rotate(22.5deg) scale(1.05);
+  box-shadow: 0 0 16px rgba(229, 169, 60, 0.6);
+}
+
+/* Info */
+.surah-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.surah-info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.surah-english-info {
+  min-width: 0;
+}
+
+.surah-english-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+}
+
+.surah-translation {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.surah-arabic-name {
+  font-family: var(--font-arabic-ui);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  flex-shrink: 0;
+  line-height: 1.3;
+  direction: rtl;
+  text-shadow: 0 1px 8px rgba(229, 169, 60, 0.25);
+}
+
+[data-theme="light"] .surah-arabic-name {
+  color: var(--color-primary);
+}
+
+.surah-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.badge-meccan {
+  background: rgba(229, 169, 60, 0.12);
+  color: var(--color-gold-dark);
+  border: 1px solid var(--border-gold-subtle);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .badge-meccan {
+  color: var(--color-gold-light);
+}
+
+.badge-medinan {
+  background: rgba(74, 46, 28, 0.15);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+}
+
+.surah-verse-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.surah-card-arrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.surah-card:hover .surah-card-arrow {
+  transform: translateX(4px);
+  color: var(--color-gold);
+}
+
+/* Compact variant */
+.surah-card-compact .surah-card-inner {
+  padding: 10px var(--spacing-md);
+}
+
+.surah-card-compact .surah-cartouche {
+  width: 40px;
+  height: 40px;
+}
+
+.surah-card-compact .surah-arabic-name {
+  font-size: 1.25rem;
+}
+
+.surah-card-compact .surah-english-name {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .surah-card-inner {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  .surah-arabic-name {
+    font-size: 1.2rem;
+  }
+
+  .surah-english-name {
+    font-size: 0.9rem;
+  }
+}

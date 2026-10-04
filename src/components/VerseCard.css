@@ -1,0 +1,206 @@
+/* ============================================
+   VerseCard Styles — Noble Quran Reading Vessel
+   ============================================ */
+
+.verse-card {
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.verse-card:last-child {
+  border-bottom: none;
+}
+
+.verse-card:hover {
+  background: rgba(197, 163, 88, 0.04);
+}
+
+.verse-card:hover .verse-actions,
+.verse-card:focus-within .verse-actions {
+  opacity: 1;
+}
+
+/* Arabic Text */
+.verse-arabic-wrapper {
+  padding: var(--spacing-sm) 0 var(--spacing-md);
+}
+
+.verse-arabic {
+  font-family: var(--font-arabic);
+  font-size: var(--arabic-font-size);
+  line-height: var(--line-spacing);
+  direction: rtl;
+  text-align: right;
+  color: var(--text-primary);
+  word-spacing: 0.15em;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] .verse-arabic {
+  color: #FFFDF8;
+}
+
+/* Verse End Marker / Ayah Stop Circle */
+.verse-number-inline {
+  font-family: var(--font-arabic);
+  color: var(--color-gold);
+  font-size: 0.9em;
+  user-select: none;
+  display: inline-block;
+  padding: 0 4px;
+}
+
+/* Translation */
+.verse-translation {
+  padding: var(--spacing-sm) 0 var(--spacing-sm);
+  border-left: 3px solid var(--color-gold);
+  padding-left: var(--spacing-md);
+  margin-left: 2px;
+  margin-top: var(--spacing-xs);
+}
+
+.verse-translation p {
+  font-size: var(--translation-font-size);
+  color: var(--text-secondary);
+  line-height: 1.85;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* Actions Bar */
+.verse-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.45;
+  transition: opacity var(--transition-fast);
+  padding-top: var(--spacing-sm);
+}
+
+.verse-ref {
+  display: flex;
+  align-items: center;
+}
+
+.verse-ref .verse-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  padding: 3px 12px;
+  font-family: var(--font-ui);
+  letter-spacing: 0.04em;
+}
+
+.verse-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-gold-subtle);
+  color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.btn-icon:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 1px;
+}
+
+.btn-icon-active {
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+  border-color: var(--border-gold);
+}
+
+.btn-icon-bookmarked {
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+}
+
+.btn-icon-bookmarked:hover {
+  color: #e06060;
+  background: rgba(220, 80, 80, 0.12);
+}
+
+/* Verse-by-Verse Mode */
+.verse-card-vbv {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(197, 163, 88, 0.08);
+}
+
+.verse-card-vbv .verse-arabic {
+  font-size: calc(var(--arabic-font-size) * 1.15);
+  line-height: calc(var(--line-spacing) * 1.08);
+  text-align: center;
+}
+
+.verse-card-vbv .verse-translation {
+  border-left: none;
+  border-top: 1px solid var(--border-gold-subtle);
+  padding: var(--spacing-md) 0 0;
+  margin-left: 0;
+  text-align: center;
+}
+
+.verse-card-vbv .verse-translation p {
+  font-size: calc(var(--translation-font-size) * 1.1);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.verse-card-vbv:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(197, 163, 88, 0.18);
+}
+
+.verse-card-vbv .verse-actions {
+  opacity: 1;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* On mobile — always show actions */
+@media (max-width: 768px) {
+  .verse-actions {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-arabic {
+    font-size: calc(var(--arabic-font-size) - 4px);
+  }
+
+  .verse-card-vbv {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
